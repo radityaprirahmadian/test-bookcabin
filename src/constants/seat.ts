@@ -1,0 +1,40 @@
+export const SEAT_TYPES = {
+	BLANK: 'BLANK',
+	AISLE: 'AISLE',
+	SEAT: 'SEAT',
+	WING: 'WING',
+	BULKHEAD: 'BULKHEAD',
+	EXIT: 'EXIT',
+}
+
+export const SEAT_CHARACTERISTICS = {
+	WINDOW: 'W',
+	AISLE: 'A',
+	MIDDLE: '9',
+	CHILD_FRIENDLY: 'CH',
+	EXIT_ROW: 'E',
+	FRONT_OF_CABIN: 'FC',
+	WING_AREA: 'OW',
+	LEFT_SIDE: 'LS',
+	RIGHT_SIDE: 'RS',
+	LIMITED_RECLINE: 'L',
+	NOT_ALLOWED_FOR_INFANT: '1A',
+	NOT_ALLOWED_FOR_MEDICAL: '1B',
+	VACANT: 'V',
+}
+
+export const SEAT_PRICE_CATEGORIES = {
+	PREMIUM: 65,
+	STANDARD_PLUS: 55,
+	FRONT_CABIN: 50,
+	STANDARD: 30,
+	FREE: 0,
+}
+
+export const SEAT_CATEGORY_LABELS = {
+	PREMIUM: 'Premium Seat',
+	STANDARD_PLUS: 'Extra Legroom',
+	FRONT_CABIN: 'Front Cabin',
+	STANDARD: 'Standard Seat',
+	FREE: 'Free Seat',
+}
