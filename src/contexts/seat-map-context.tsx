@@ -1,20 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
-'use client'
-
-import { createContext, useReducer, type ReactNode, type Dispatch } from 'react'
+import { createContext, type ReactNode, type Dispatch } from 'react'
 import type { Seat, SeatMapResponse } from '../types/seat-map'
-import {
-	seatMapReducer,
-	initialState,
-	type SeatMapAction,
-	type SeatMapState,
-	setSeatMapData as setSeatMapDataAction,
-	selectSeat as selectSeatAction,
-	clearSelectedSeat as clearSelectedSeatAction,
-} from '../reducers/seat-map-reducer'
+import { SEAT_MAP_ACTIONS, type SEAT_MAP_ACTION_TYPES } from '@/reducers/seat-map/actions'
+import useSeatMapReducer, { type SeatMapState } from '@/reducers/seat-map'
 
 export interface SeatMapContextType extends SeatMapState {
-	dispatch: Dispatch<SeatMapAction>
+	dispatch: Dispatch<SEAT_MAP_ACTION_TYPES>
 	setSeatMapData: (data: SeatMapResponse | null) => void
 	setSelectedSeat: (seat: Seat | null) => void
 	clearSelectedSeat: () => void
@@ -23,20 +14,24 @@ export interface SeatMapContextType extends SeatMapState {
 export const SeatMapContext = createContext<SeatMapContextType | undefined>(undefined)
 
 export function SeatMapProvider({ children }: { children: ReactNode }) {
-	const [state, dispatch] = useReducer(seatMapReducer, initialState)
+	const { state, dispatch } = useSeatMapReducer()
 
-	// Helper functions that wrap dispatch
-	const setSeatMapData = (data: SeatMapResponse | null) => {
-		dispatch(setSeatMapDataAction(data))
-	}
+	const setSeatMapData = (data: SeatMapResponse | null) =>
+		dispatch({
+			type: SEAT_MAP_ACTIONS.SET_SEAT_MAP_DATA,
+			payload: data,
+		})
 
-	const setSelectedSeat = (seat: Seat | null) => {
-		dispatch(selectSeatAction(seat))
-	}
+	const setSelectedSeat = (seat: Seat | null) =>
+		dispatch({
+			type: SEAT_MAP_ACTIONS.SELECT_SEAT,
+			payload: seat,
+		})
 
-	const clearSelectedSeat = () => {
-		dispatch(clearSelectedSeatAction())
-	}
+	const clearSelectedSeat = () =>
+		dispatch({
+			type: SEAT_MAP_ACTIONS.CLEAR_SELECTED_SEAT,
+		})
 
 	return (
 		<SeatMapContext.Provider

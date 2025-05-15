@@ -4,7 +4,7 @@ import { SeatMapProvider } from './contexts/seat-map-context'
 
 const App = () => {
 	return (
-		<main className="min-h-screen w-screen bg-gray-100">
+		<main className="min-h-screen w-screen bg-white">
 			<SeatMapProvider>
 				<NavigationBar />
 				<SeatMapContainer />
