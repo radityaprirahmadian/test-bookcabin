@@ -32,7 +32,7 @@ const PassengerInfo = () => {
 			<Dialog open={detailOpened} onOpenChange={setDetailOpened}>
 				<DialogContent className="sm:max-w-(--breakpoint-sm)">
 					<DialogHeader className="pb-2">
-						<DialogTitle className="flex items-center w-fit pb-2 pe-2 gap-2 border-b-2 border-b-airline-primary-hover">
+						<DialogTitle className="flex items-center w-fit pb-2 pe-2 gap-2">
 							<User className="h-5 w-5" />
 							Passanger Information
 						</DialogTitle>
