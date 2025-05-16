@@ -17,13 +17,13 @@ const PassengerInfo = () => {
 
 	return (
 		<div>
-			<div className="flex items-center gap-2 text-lg">Choose seat for:</div>
+			<div className="flex items-center gap-2 md:text-lg">Choose seat for:</div>
 
 			<div
 				className="flex items-center cursor-pointer justify-between gap-2 border-b-2 border-b-airline-primary-hover"
 				onClick={() => setDetailOpened(true)}
 			>
-				<p className="font-medium text-2xl">
+				<p className="font-medium text-lg md:text-2xl">
 					{passengerDetails.firstName} {passengerDetails.lastName}
 				</p>
 				<ArrowRight className="h-6 w-6 text-airline-primary-hover" />

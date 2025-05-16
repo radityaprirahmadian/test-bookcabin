@@ -11,7 +11,7 @@ const SeatMapContainer = () => {
 	return (
 		<div className="relative container mx-auto bg-gray-100 md:ps-0 md:pe-20 pb-0 border-r-2 border-r-airline-primary-hover border-l-2 border-l-airline-primary-hover md:border-l-0">
 			<div className="grid grid-cols-1 justify-center lg:grid-cols-12 gap-20 mx-auto">
-				<div className="lg:col-span-5 p-6 md:ps-0 md:pe-6 relative bg-white pt-28 border-b-2 md:border-b-0 border-b-airline-primary-hover md:border-r-2 border-r-airline-primary-hover">
+				<div className="lg:col-span-5 p-6 md:ps-0 md:pe-6 relative bg-white pt-16 md:pt-28 border-b-2 md:border-b-0 border-b-airline-primary-hover md:border-r-2 border-r-airline-primary-hover">
 					<div className="sticky top-28">
 						<PassengerInfo />
 						<div className="hidden md:block">{selectedSeat && <SeatDetails />}</div>
