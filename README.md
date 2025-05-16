@@ -1,54 +1,40 @@
-# React + TypeScript + Vite
+# BookCabin Assignment Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to run the code
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/radityaprirahmadian/test-bookcabin.git
+cd test-bookcabin
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+src/
+├── components/       # Reusable React components
+├── contexts/         # React context providers
+├── data/            # Static data files
+├── hooks/           # Custom React hooks
+├── lib/             # Utility functions and shared libraries
+├── reducers/        # Redux reducers
+├── types/           # TypeScript type definitions
+├── assets/          # Static assets
+├── constants/       # Application constants
+├── App.tsx           # Root React component
+├── main.tsx         # Entry point for the application
+├── index.css        # Global CSS styles
+├── vite-env.d.ts    # TypeScript environment declarations
+├── .gitignore       # Git ignore rules
+├── .prettierrc      # Prettier configuration
+├── components.json  # Components configuration
+├── eslint.config.js # ESLint configuration
+├── index.html       # HTML entry point
+├── package.json     # Project dependencies and scripts
+├── vite.config.ts   # Vite configuration
+├── tsconfig.app.json  # TypeScript configuration for the application
+├── tsconfig.json    # Root TypeScript configuration
+├── tsconfig.node.json # TypeScript configuration for Node.js
+└── README.md        # Project documentation
 ```
