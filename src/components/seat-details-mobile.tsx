@@ -15,7 +15,11 @@ const SeatDetailsMobile = () => {
 	}
 
 	return (
-		<Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full px-4 flex flex-col items-center md:hidden">
+		<Collapsible
+			open={isOpen}
+			onOpenChange={setIsOpen}
+			className={cn(selectedSeat && 'pb-4', 'w-full px-4 flex flex-col items-center md:hidden')}
+		>
 			<CollapsibleTrigger asChild>
 				<Button variant="ghost" size="sm">
 					<ChevronUp className={cn('h-6 w-6', isOpen && 'rotate-180')} />
