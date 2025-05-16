@@ -36,7 +36,7 @@ const FlightInfo = () => {
 					</DialogHeader>
 
 					<div className="space-y-4">
-						<div className="flex items-center gap-4">
+						<div className="flex items-start md:items-center flex-col md:flex-row gap-4">
 							<div className="flex-1">
 								<h3 className="text-sm font-medium text-gray-500">Flight</h3>
 								<p className="font-medium">
@@ -53,7 +53,7 @@ const FlightInfo = () => {
 							</div>
 						</div>
 
-						<div className="flex items-center gap-4">
+						<div className="flex items-start md:items-center flex-col md:flex-row gap-4">
 							<div className="flex-1">
 								<h3 className="text-sm font-medium text-gray-500">Departure</h3>
 								<p className="font-medium">{formatDate(departure)}</p>
