@@ -17,7 +17,7 @@ const Summary = () => {
 						{amount} {currency}
 					</p>
 				</div>
-				<div className="flex items-center flex-col-reverse md:flex-col gap-2 md:gap-4">
+				<div className="flex items-center flex-col-reverse md:flex-row gap-2 md:gap-4">
 					<Button size="xl" variant="outline" className="font-semibold w-full md:w-auto">
 						Back
 					</Button>
