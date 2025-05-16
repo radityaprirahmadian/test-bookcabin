@@ -7,13 +7,13 @@ const PassengerInfo = () => {
 	const { seatMapData } = useSeatMapStore()
 	const [detailOpened, setDetailOpened] = useState<boolean>(false)
 
-	const passengerData = seatMapData?.seatsItineraryParts?.[0]?.segmentSeatMaps?.[0]?.passengerSeatMaps?.[0]?.passenger
+	const passengerData = seatMapData?.passengerSeatMaps?.[0]?.passenger
 
 	if (!passengerData) {
 		return null
 	}
 
-	const { passengerDetails, passengerInfo } = passengerData
+	const { passengerDetails, passengerInfo, preferences } = passengerData
 
 	return (
 		<div>
@@ -56,12 +56,11 @@ const PassengerInfo = () => {
 							</div>
 						)}
 
-						{passengerData.preferences?.frequentFlyer && passengerData.preferences.frequentFlyer.length > 0 && (
+						{preferences?.frequentFlyer && preferences.frequentFlyer.length > 0 && (
 							<div>
 								<h3 className="text-sm font-medium text-gray-500">Frequent Flyer</h3>
 								<p className="font-medium">
-									{passengerData.preferences.frequentFlyer[0].airline}:{' '}
-									{passengerData.preferences.frequentFlyer[0].number}
+									{preferences.frequentFlyer[0].airline}: {preferences.frequentFlyer[0].number}
 								</p>
 							</div>
 						)}

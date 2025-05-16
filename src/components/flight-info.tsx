@@ -4,12 +4,11 @@ import { formatDate } from '@/lib/date-formatter'
 import { ArrowRight, Plane } from 'lucide-react'
 import { useState } from 'react'
 
-export default function FlightInfo() {
+const FlightInfo = () => {
 	const { seatMapData } = useSeatMapStore()
 	const [detailOpened, setDetailOpened] = useState<boolean>(false)
 
-	// Extract flight information from the seat map data
-	const segment = seatMapData?.seatsItineraryParts?.[0]?.segmentSeatMaps?.[0]?.segment
+	const segment = seatMapData?.segment
 
 	if (!segment) {
 		return null
@@ -72,3 +71,5 @@ export default function FlightInfo() {
 		</>
 	)
 }
+
+export default FlightInfo

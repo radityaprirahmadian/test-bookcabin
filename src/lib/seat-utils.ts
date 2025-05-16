@@ -1,61 +1,50 @@
+import { SEAT_CHARACTERISTICS, SEAT_COLORS, SEAT_LIMITATIONS } from '@/constants/seat'
 import type { Seat } from '@/types/seat-map'
 
+function getSeatStyleFromCharacteristics(characteristics: string[] | undefined): string | undefined {
+	if (!characteristics) return undefined
+
+	for (const char of characteristics) {
+		if (char === SEAT_CHARACTERISTICS.EXIT_ROW.code) return SEAT_COLORS.EXIT_ROW
+		if (char === SEAT_CHARACTERISTICS.EXTRA_LEGROOM.code) return SEAT_COLORS.EXTRA_LEGROOM
+		if (char === SEAT_CHARACTERISTICS.FRONT_OF_CABIN.code) return SEAT_COLORS.FRONT_CABIN
+	}
+	return undefined
+}
+
 export function getSeatTypeClass(seat: Seat) {
-	// Exit row seats
-	if (seat.rawSeatCharacteristics?.includes('E')) {
-		return 'bg-purple-100 border-purple-500'
-	}
+	const styleFromCharacteristics = getSeatStyleFromCharacteristics(seat.rawSeatCharacteristics)
 
-	// Premium seats (higher price)
-	if (seat.total && seat.total.alternatives?.[0]?.[0]?.amount >= 50) {
-		return 'bg-amber-100 border-amber-500'
-	}
+	if (styleFromCharacteristics) return styleFromCharacteristics
+	if (seat.limitations?.length) return SEAT_COLORS.RESTRICTED
+	if (seat.available) return SEAT_COLORS.AVAILABLE
 
-	// Seats with limitations
-	if (seat.limitations?.length) {
-		return 'bg-red-100 border-red-500'
-	}
-
-	// Regular available seats
-	if (seat.available) {
-		return 'bg-green-100 border-green-500'
-	}
-
-	// Unavailable seats
-	return 'bg-gray-100 border-gray-500'
+	return SEAT_COLORS.UNAVAILABLE
 }
 
 export function getSeatCharacteristicsLabels(seat: Seat) {
 	const characteristics: string[] = []
 
-	if (!seat.seatCharacteristics) {
+	if (!seat.rawSeatCharacteristics) {
 		return characteristics
 	}
 
-	seat.seatCharacteristics.forEach((char: string) => {
-		switch (char) {
-			case 'W':
-				characteristics.push('Window Seat')
-				break
-			case 'A':
-				characteristics.push('Aisle Seat')
-				break
-			case '9':
-				characteristics.push('Middle Seat')
-				break
-			case 'CH':
-				characteristics.push('Chargeable Seat')
-				break
-			default:
-				characteristics.push(char)
+	// Filter out limitations
+	const filteredCharacteristics = seat.rawSeatCharacteristics.filter(
+		(char) => !Object.values(SEAT_LIMITATIONS).some((limitation: { code: string }) => limitation.code === char)
+	)
+
+	filteredCharacteristics.forEach((char: string) => {
+		const characteristic = Object.entries(SEAT_CHARACTERISTICS).find(
+			([, value]: [string, { code: string; desc: string }]) => value.code === char
+		)
+
+		if (characteristic) {
+			characteristics.push(characteristic?.[1]?.desc ?? '')
+		} else {
+			characteristics.push(char)
 		}
 	})
-
-	if (seat.designations) {
-		seat.designations.forEach((designation: string) => {
-			characteristics.push(designation.replace(/_/g, ' '))
-		})
-	}
 
 	return characteristics
 }

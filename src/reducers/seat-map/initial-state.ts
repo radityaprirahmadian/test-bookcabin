@@ -1,12 +1,12 @@
-import type { Seat, SeatMapResponse } from '@/types/seat-map'
-import seatMapData from '@/constants/seat-map-response.json'
+import type { Seat, SegmentSeatMap } from '@/types/seat-map'
+import seatMapData from '@/data/seat-map-response.json'
 
 export interface SeatMapState {
-	seatMapData: SeatMapResponse | null
+	seatMapData: SegmentSeatMap | null
 	selectedSeat: Seat | null
 }
 
 export const initialState: SeatMapState = {
-	seatMapData: seatMapData as unknown as SeatMapResponse,
+	seatMapData: seatMapData?.seatsItineraryParts?.[0]?.segmentSeatMaps[0] as unknown as SegmentSeatMap,
 	selectedSeat: null,
 }

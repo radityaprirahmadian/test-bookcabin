@@ -68,14 +68,14 @@
 	--airline-primary-hover: #b71c1c;
 	--airline-primary-light: #ffcdd2;
 
-	/* Neutral Colors */
+	--airline-secondary: #001c3f;
+
 	--airline-background: #ffffff;
 	--airline-surface: #f5f5f5;
 	--airline-border: #e0e0e0;
 	--airline-text: #212121;
 	--airline-text-secondary: #616161;
 
-	/* Accent Colors */
 	--airline-success: #388e3c;
 	--airline-warning: #f57c00;
 	--airline-error: #c62828;
@@ -122,15 +122,14 @@
 	--color-airline-primary: var(--airline-primary);
 	--color-airline-primary-hover: var(--airline-primary-hover);
 	--color-airline-primary-light: var(--airline-primary-light);
+	--color-airline-secondary: var(--airline-secondary);
 
-	/* Neutral Colors */
 	--color-airline-background: var(--airline-background);
 	--color-airline-surface: var(--airline-surface);
 	--color-airline-border: var(--airline-border);
 	--color-airline-text: var(--airline-text);
 	--color-airline-text-secondary: var(--airline-text-secondary);
 
-	/* Accent Colors */
 	--color-airline-success: var(--airline-success);
 	--color-airline-warning: var(--airline-warning);
 	--color-airline-error: var(--airline-error);

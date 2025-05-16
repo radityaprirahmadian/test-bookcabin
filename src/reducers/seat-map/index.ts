@@ -5,11 +5,6 @@ import { initialState, type SeatMapState } from './initial-state'
 const useSeatMapReducer = () => {
 	const reducer = (state: SeatMapState, action: SEAT_MAP_ACTION_TYPES): SeatMapState => {
 		switch (action.type) {
-			case SEAT_MAP_ACTIONS.SET_SEAT_MAP_DATA:
-				return {
-					...state,
-					seatMapData: action.payload,
-				}
 			case SEAT_MAP_ACTIONS.SELECT_SEAT:
 				return {
 					...state,

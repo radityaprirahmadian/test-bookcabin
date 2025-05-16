@@ -3,6 +3,7 @@ import PassengerInfo from './passenger-info'
 import SeatDetails from './seat-details'
 import SeatLegend from './seat-legend'
 import { useSeatMapStore } from '@/hooks/use-seat-map-store'
+import Summary from './summary'
 
 const SeatMapContainer = () => {
 	const { selectedSeat } = useSeatMapStore()
@@ -23,8 +24,8 @@ const SeatMapContainer = () => {
 			</div>
 
 			<div className="border-t-2 border-airline-primary-hover bg-white fixed left-0 right-0 bottom-0">
-				<div className="md:hidden">{selectedSeat && <SeatDetails />}</div>
 				<SeatLegend />
+				<Summary />
 			</div>
 		</div>
 	)
