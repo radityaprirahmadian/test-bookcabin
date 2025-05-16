@@ -1,7 +1,6 @@
 import { useSeatMapStore } from '@/hooks/use-seat-map-store'
 import { Button } from './ui/button'
 import SeatDetailsMobile from './seat-details-mobile'
-import { cn } from '@/lib/utils'
 
 const Summary = () => {
 	const { selectedSeat } = useSeatMapStore()
@@ -12,11 +11,7 @@ const Summary = () => {
 		<div className="md:p-2 w-full border-t-2 border-t-airline-primary-hover mx-auto">
 			<div className="md:container mx-auto flex items-center flex-col md:flex-row justify-between">
 				<SeatDetailsMobile />
-				<div
-					className={cn(
-						'w-full px-2 py-4 md:px-0 md:py-0 md:w-auto flex items-center justify-between flex-row md:flex-col md:items-start'
-					)}
-				>
+				<div className="w-full px-2 py-4 md:px-0 md:py-0 md:w-auto flex items-center justify-between flex-row md:flex-col md:items-start">
 					<p className="text-lg md:text-sm">Total</p>
 					<p className="text-3xl font-bold">
 						{amount} {currency}
